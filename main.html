@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no,email=no" />
+		<title>首页</title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/account.css" rel="stylesheet"/>
+		<link href="css/icons-extra.css" rel="stylesheet"/>
+		<link href='css/all.css' rel="stylesheet"/>
+		<style>
+			#item2{background:#fff}
+			body{background:#fff}
+			.mui-content{background:#fff}
+		</style>
+		
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-icon goCenter" id='go-center'><img src="images/userCenter.png"></a> 
+			<h1 class="mui-title"><a class="change" href="#topPopover" ><span id='change'>单双大小和</span><span class='mui-icon mui-icon-arrowdown'></span></a></h1>
+			<a  class="mui-pull-right mui-icon " id="go-trend"><img  class="zoushi" src="images/zoushi.png"></a> 
+		</header>
+		<div class="mui-content mui-scroll-wrapper" id="pullrefresh"> 
+			<div class="mui-scroll">
+				<div class="number">
+					<div class="notice">
+						<span class='mui-icon-extra mui-icon-extra-notice'></span>			
+							<marquee id="notice">CSS3实现的aaaaaaaaaaaaaa跑马灯效果aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</marquee>	
+					</div>	
+					<div class='ball-list'>
+						<span class="ball" id='ball1'>20</span>
+						<span class="ball" id='ball2'>21</span>
+						<span class="ball" id='ball3'>22</span>
+						<span class="ball" id='ball4'>23</span>
+						<span class="ball" id='ball5'>24</span>
+					</div>
+					<div class="lottery-msg">
+						<span>第<span class="now-phase" id='now-phase'>20170313-015</span>期</span>
+						<span id="now-type">等待开奖</span>
+						<span class="lottery-time" id='lottery-time'>00:<span id='min'>00</span>:<span id='second'>10</span></span>
+					</div>				
+				</div> 
+				<div class="last-msg">
+					<span>第<span class="last-phase" id='last-phase'>20170313-014</span>期</span>
+					<span>开奖</span>
+					<span class='last-number' id='last-number'>01 07 08 09 05</span>
+				</div>
+				<div class="lottery-list-head">
+					<span>期号</span>
+					<span>开奖号</span>				
+				</div>
+				<div class='lottery-list '>
+					<div class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<ul class='mui-table-view' id='list-ago'>
+								<li class='mui-table-view-cell history-number'><span class='history-qi'>014期</span><span class='history-lottery'>01 07 08 09 05</span></li>
+								<li class='mui-table-view-cell history-number'><span class='history-qi'>014期</span><span class='history-lottery'>01 07 08 09 05</span></li>
+								<li class='mui-table-view-cell history-number'><span class='history-qi'>014期</span><span class='history-lottery'>01 07 08 09 05</span></li>
+								<li class='mui-table-view-cell history-number'><span class='history-qi'>014期</span><span class='history-lottery'>01 07 08 09 05</span></li>
+								<li class='mui-table-view-cell history-number'><span class='history-qi'>014期</span><span class='history-lottery'>01 07 08 09 05</span></li>
+								<li class='mui-table-view-cell history-number'><span class='history-qi'>014期</span><span class='history-lottery'>01 07 08 09 05</span></li>
+								<li class='mui-table-view-cell history-number'><span class='history-qi'>014期</span><span class='history-lottery'>01 07 08 09 05</span></li>
+								<li class='mui-table-view-cell history-number'><span class='history-qi'>014期</span><span class='history-lottery'>01 07 08 09 05</span></li>
+								<li class='mui-table-view-cell history-number'><span class='history-qi'>014期</span><span class='history-lottery'>01 07 08 09 05</span></li>
+								<li class='mui-table-view-cell history-number'><span class='history-qi'>014期</span><span class='history-lottery'>01 07 08 09 05</span></li>
+								<li class='mui-table-view-cell history-number'><span class='history-qi'>014期</span><span class='history-lottery'>01 07 08 09 05</span></li>
+								<li class='mui-table-view-cell history-number'><span class='history-qi'>014期</span><span class='history-lottery'>01 07 08 09 05</span></li>
+							</ul> 
+						</div>
+					</div>
+				</div>
+				<div class='end-time-msg'>
+					<span>距离<span id='over-qi'></span>期投注截止时间还有</span><span class='end-time'>00:<span id='min2'>12</span>:<span id='second2'>00</span></span>
+				</div>
+				<!--单双大小和-->
+				<div id="item1" class="mui-control-content mui-active ">
+					<div class='chip-chose'>
+		                <span class='make-msg'>选择</span>
+		                <span class='make make-chose' id='dan'>单</span>
+		                <span class='make' id='shuang'>双</span>
+		                <span class='make' id='da'>大</span>
+		                <span class='make' id='xiao'>小</span>
+		                <span class='make' id='he'>和</span> 
+		            </div>
+		            <div style='height:60px'></div>
+	        	</div>
+				<!--任选-->
+	            <div id="item2" class="chip-chose-all mui-control-content bg-w"> 
+	                <div class='p-10'>请选择<span class='c-red'>1-5</span>个号码:</div>
+	                <div class='all-chose'>
+	                    <span class='all-msg'>选号</span>
+	                    <div class='all-list'> 
+		                    <span class='all-ball all-ball-chose' id=''>01</span>
+		                    <span class='all-ball' id=''>02</span>
+		                    <span class='all-ball' id=''>03</span>
+		                    <span class='all-ball' id=''>04</span>
+		                    <span class='all-ball' id=''>05</span> 
+		                    <span class='all-ball' id=''>06</span> 
+		                    <span class='all-ball' id=''>07</span> 
+		                    <span class='all-ball' id=''>08</span> 
+		                    <span class='all-ball' id=''>09</span> 
+		                    <span class='all-ball' id=''>10</span> 
+		                    <span class='all-ball' id=''>11</span> 
+	                    </div>
+	                </div>
+	                <div style='height:60px'></div>
+	            </div>
+	            <!--任选五(胆拖)-->
+	            <div id="item3" class="mui-control-content  bg-w">
+	                <div class='p-10'>我认为一定会出的号码,选择<span id='ball-count' class='c-red'>0-4</span>个号码:</div>
+	                <div class='dan-chose'>
+	                    <span class='dan-msg'>胆码</span>
+	                    <div class='dan-list'>
+		                    <span class='dan-ball dan-ball-chose' id=''>01</span>
+		                    <span class='dan-ball' id=''>02</span>
+		                    <span class='dan-ball' id=''>03</span>
+		                    <span class='dan-ball' id=''>04</span>
+		                    <span class='dan-ball' id=''>05</span> 
+		                    <span class='dan-ball' id=''>06</span> 
+		                    <span class='dan-ball' id=''>07</span> 
+		                    <span class='dan-ball' id=''>08</span> 
+		                    <span class='dan-ball' id=''>09</span> 
+		                    <span class='dan-ball' id=''>10</span> 
+		                    <span class='dan-ball' id=''>11</span> 
+	                    </div>
+	                </div>
+	                <div class='p-10'>我认为可能出的号码,选择<span class='c-red'>2-11</span>个号码:</div>
+	                <div class='tuo-chose'>
+	                    <span class='tuo-msg'>拖码</span>
+	                    <div class='tuo-list'>
+		                    <span class='tuo-ball' id=''>01</span>
+		                    <span class='tuo-ball' id=''>02</span>
+		                    <span class='tuo-ball' id=''>03</span>
+		                    <span class='tuo-ball' id=''>04</span>
+		                    <span class='tuo-ball' id=''>05</span> 
+		                    <span class='tuo-ball' id=''>06</span> 
+		                    <span class='tuo-ball' id=''>07</span> 
+		                    <span class='tuo-ball' id=''>08</span> 
+		                    <span class='tuo-ball' id=''>09</span> 
+		                    <span class='tuo-ball' id=''>10</span> 
+		                    <span class='tuo-ball' id=''>11</span> 
+	                    </div>
+	                </div>
+	                <div style='height:60px'></div>
+	            </div>
+
+      		</div>
+		</div>
+		<!--占时填充底部-->
+		
+		
+		
+		<!--顶部选项卡-->
+		<div id="topPopover" class="mui-popover ">
+			<div class="mui-popover-arrow"></div>
+			<ul class="mui-table-view chose-list">
+				<li class="mui-table-view-cell " data-href='1'><a class='mui-control-item mui-active' href='#item1'>单双大小和 </a>
+				</li>
+				<li class="mui-table-view-cell" data-href='2'><a class='mui-control-item ' href='#item2'>任选</a>
+				</li>
+				<li class="mui-table-view-cell" data-href='3'><a class='mui-control-item ' href='#item3'>任选五(胆拖)</a>
+				</li>
+				<li class="mui-table-view-cell" data-href='4'><a class='mui-control-item ' href='#item3'>任选四(胆拖)</a>
+				</li>
+				<li class="mui-table-view-cell" data-href='5'><a class='mui-control-item ' href='#item3'>任选三(胆拖)</a>
+				</li>
+				<li class="mui-table-view-cell" data-href='6'><a class='mui-control-item ' href='#item3'>任选二(胆拖)</a> 
+				</li>
+				
+			</ul> 
+			
+		</div>
+		<!--底部投注-->
+		<nav class="mui-bar mui-bar-tab">
+		   	<div class='foot-number'>
+			  	<div class='in-msg'>投注金币:<input id='all-in' type='number' value="0"> 金币</div>
+			  	<div class='btn-in' id='btn-in'>投注</div>
+		  	</div>
+		</nav>
+		
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script> 
+		<script>
+			var code=1;//玩法标识
+			var code1;//胆拖验证标识
+			var qisu;
+			var qisu2;
+			(function($, doc) {	
+				$.init({
+					swipeBack:true,
+					indicators: false, 
+					
+					preloadPages:[
+					    {
+					      url:'userCenter.html',  
+					      id:'userCenter'
+					     
+					    },
+					    {
+					      url:'trend.html',  
+					      id:'trend' ,
+					      
+					    }  
+					],
+				}); 
+				
+				var change=document.getElementById('change');
+				var ballCount=document.getElementById('ball-count');
+				
+				
+				$.plusReady(function() { 
+					/*玩法切换*/  
+					$(".chose-list").on('tap','.mui-table-view-cell',function(){
+						var href=this.getAttribute('data-href').toLowerCase();
+						console.log(href);
+						/*隐藏玩法切换*/
+						mui('#topPopover').popover('toggle')
+						/*判断所选玩法*/
+						if(href==code){
+							console.log('cao')
+							return;
+						}else{
+							//选球重置
+							var chose=document.querySelectorAll('.all-ball-chose')
+							if(chose){
+								for(var i = 0; i < chose.length; i++){	
+									chose[i].setAttribute('class','all-ball');
+								}
+							}	
+//							console.log('di1');
+							var chose2=document.querySelectorAll('.dan-ball-chose')
+							if(chose2){
+								for(var i = 0; i < chose2.length; i++){							 
+									chose2[i].setAttribute('class','dan-ball');
+								}
+							}	
+//							console.log('di2');
+							var chose3=document.querySelectorAll('.tuo-ball-chose')
+							if(chose3){
+								for(var i = 0; i < chose3.length; i++){							 
+									chose3[i].setAttribute('class','tuo-ball');
+								}
+							}	 
+//							console.log('di3'); 
+							/*切换玩法的同时修改title*/
+							switch(parseInt(href))
+							{
+							case 1:						
+							  change.innerText='单双大小和';
+							  console.log('danxuan');
+							  code=1
+							  break;
+							case 2: 
+							  change.innerText='任选';
+							  code=2;
+							  break;
+							case 3:
+							  change.innerText='任选五(胆拖)';
+							  ballCount.innerText='0-4'
+							  code1=5;
+							  code=3;
+							  break;
+							case 4:
+							  change.innerText='任选四(胆拖)';
+							  ballCount.innerText='0-3'
+							  code1=4
+							  code=4
+							  break;
+							case 5:
+							  change.innerText='任选三(胆拖)';
+							  ballCount.innerText='0-2'
+							  code1=3
+							  code=5
+							  break;
+							case 6:						  
+							  change.innerText='任选二(胆拖)';
+							  ballCount.innerText='0-1'
+							  code1=2
+							  code=6
+							  break;
+							default:
+							  break;
+							}
+							mui.toast('切换成功')
+						}
+						
+					});
+					/*单双大小和投注*/
+					$(".chip-chose").on('tap','.make',function(){
+											
+						if(this.getAttribute('class').indexOf('make-chose') > -1){
+							this.setAttribute('class',' make');
+						}else{
+							var make=document.querySelector('.make-chose')
+							if(make){
+								make.setAttribute('class','make')
+							}						
+							this.setAttribute('class','make-chose make');
+						}					
+					})
+					/*任选*/
+					$(".all-list").on('tap','.all-ball',function(){
+						if(this.getAttribute('class').indexOf('all-ball-chose') > -1){
+							this.setAttribute('class','all-ball');
+						}else{
+							var chose=document.querySelectorAll('.all-ball-chose')
+							if(chose.length<5){
+								this.setAttribute('class','all-ball all-ball-chose');
+							}else{
+								mui.toast('最多不能超过5个')	
+							}												
+						}
+					})
+					/*任选5432*/
+					$(".dan-list").on('tap','.dan-ball',function(){
+						/*取消当前*/
+						if(this.getAttribute('class').indexOf('dan-ball-chose') > -1){
+							this.setAttribute('class','dan-ball');
+						}else{
+							var tuoList=document.querySelectorAll('.tuo-ball-chose')						
+							for(var i = 0; i < tuoList.length; i++){							 
+								if(tuoList[i].innerText===this.innerText){
+									mui.toast('胆码与拖码相同请重新选择')
+									return;
+								}
+							}
+							var chose=document.querySelectorAll('.dan-ball-chose')
+							if(chose.length<code1-1){
+								this.setAttribute('class','dan-ball dan-ball-chose');
+							}else{
+								mui.toast('胆码不能超过'+code1+'个')
+							}												
+						}
+					})
+					$(".tuo-list").on('tap','.tuo-ball',function(){
+						if(this.getAttribute('class').indexOf('tuo-ball-chose') > -1){
+							this.setAttribute('class','tuo-ball');
+						}else{
+							var danList=document.querySelectorAll('.dan-ball-chose')						
+							for(var i = 0; i < danList.length; i++){							 
+								if(danList[i].innerText===this.innerText){
+									mui.toast('胆码与拖码相同请重新选择')
+									return;
+								}
+							}
+							var chose=document.querySelectorAll('.tuo-ball-chose')							
+							this.setAttribute('class','tuo-ball tuo-ball-chose');																		
+						}
+					})
+					/*区域滚动*/
+					$('.mui-scroll-wrapper').scroll({
+						deceleration: 0.0005, //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006					
+						indicators: false
+					});
+					/*去走势图*/ 
+					document.getElementById('go-trend').addEventListener('tap',function(){
+						if(change.innerHTML=='单双大小和'){
+							himall.openVW('trend2.html')
+						}else{
+							himall.openVW('trend.html')
+						}
+						
+					})
+					/*去个人中心*/	
+					document.getElementById('go-center').addEventListener('tap',function(){
+						console.log(himall.isLogin());
+						if(himall.isLogin()){
+							console.log('aaa');
+							himall.openVW('userCenter.html')
+						}else{
+							plus.nativeUI.toast('请先登录')
+							showLogin('','');		 					    
+							return;	 
+						}
+						 
+					}) 
+					
+					/*去投注*/	
+					var allIn=document.getElementById('all-in'); 
+					var overQi=document.getElementById('over-qi')
+					var change=document.getElementById('change')
+					//投注金额正则判断
+					allIn.addEventListener('input',function(){
+						var reg = /^[1-9]{1}([0-9]+)?$/;
+						var r=allIn.value.match(reg)
+						if(r==null){
+							console.log('错误')
+							allIn.value=''
+						}else{
+							
+						}
+					})
+					document.getElementById('btn-in').addEventListener('tap',function(){
+						if(himall.isLogin()){
+							var userState = JSON.parse(localStorage.getItem('$state') || "{}");
+							var token=userState.token;
+							var cathecticType;
+							var cathecticNumber='0';
+							console.log(change.innerHTML)
+							//投注金额判断
+							if(allIn.value<=0){
+								plus.nativeUI.toast('投注金额不能为0')
+								return;
+							}
+							//判断类型
+							switch (change.innerHTML)
+							{
+								case '单双大小和':
+								  	var dan=document.querySelector('.make-chose');
+								  	console.log(dan.innerHTML+'dan')
+								  	switch (dan.innerHTML)
+									{
+										case '单':
+											cathecticType='single'
+										  	break;
+										case '双':
+										 	cathecticType='double';
+										  	break;
+										case '小':
+										 	cathecticType='small';
+										 	break;
+										case '大':
+										 	cathecticType='large';	
+										 	break;
+										case '和':
+										 	cathecticType='draw';
+										 	break;
+										default:		
+										  	return;
+									}
+									break;
+								case '任选':
+									var dan1=document.querySelectorAll('.all-ball-chose')
+									cathecticNumber='';
+									if(dan1.length>0){
+										console.log(dan1.length)
+										switch (String(dan1.length)) 
+										{
+											case '1':
+												cathecticType='one';
+											  	break;
+											case '2':
+											 	cathecticType='two';
+											  	break;
+											case '3':
+											 	cathecticType='three';
+											 	break;
+											case '4':
+											 	cathecticType='four';	
+											 	break;
+											case '5':
+											 	cathecticType='five';
+											 	break;
+											default:		
+											  	return;
+										}
+										for(var i=0 ; i<dan1.length ; i++){
+											cathecticNumber = dan1[i].innerHTML+','+cathecticNumber	
+										}
+										cathecticNumber=cathecticNumber.substring(0,cathecticNumber.length-1)	
+										console.log(cathecticNumber);
+										
+									}else{
+										plus.nativeUI.toast('请至少选择一个数字!')
+										return;
+									}
+								  	break;
+								  	
+								case '任选五(胆拖)':
+								 	console.log('3')
+								 	cathecticNumber='';
+								 	cathecticType='five';
+								 	cathecticNumber=dantuo(6)
+								  	
+								 	break;
+								case '任选四(胆拖)':
+								 	console.log('4')
+								  	cathecticNumber='';
+								 	cathecticType='four';
+								 	cathecticNumber=dantuo(5)
+								  	break;
+								case '任选三(胆拖)':
+								 	cathecticNumber='';
+								 	cathecticType='three';
+								 	cathecticNumber=dantuo(4)
+								  	
+								  	break;
+								case '任选二(胆拖)':
+								 	cathecticNumber='';
+								 	cathecticType='two';
+								 	cathecticNumber=dantuo(3)	
+								  	break;
+								default:
+								  return;	
+							}
+							
+							console.log(userState.token); 
+							console.log(allIn.value+'=moeny');
+							console.log(cathecticNumber);
+							console.log(cathecticType);
+							console.log(token);
+							console.log(qisu2.substring(0,6))
+							qisu2=qisu2.substring(0,6)+overQi.innerHTML 
+//							console.log(qisu2+'期数')
+							  
+							$.ajax(url+'app/lottery/addLotteryCathectic',{
+								dataType:'json',
+								data:{
+									lotteryType:'11选5',
+									cathecticMoney:allIn.value,
+									periods:qisu2, 
+									cathecticType:cathecticType,
+									cathecticNumber:cathecticNumber,
+									token:token, 
+								}, 
+								type:'post', 
+								success:function(data){
+									if(data.status=='ok'){
+										plus.nativeUI.toast('提交成功')	
+										himall.openVW('allinList.html');
+									}else{
+										console.log(data.status+data.info) 
+										plus.nativeUI.toast(data.info)
+									}
+								},
+								error:function(xhr,type,errorThrown){
+									console.log('错了')
+								}
+							});
+						}else{
+							plus.nativeUI.toast('请先登录')
+							showLogin('','');		 					    
+							return;
+						}	
+					})  
+					/*重写quitAPP()*/
+					himall.quitApp(); 
+					/*加载首页数据*/
+					loadPage=function(){
+						//往期数据接口
+						$.ajax(url+'app/lottery/lotteryAward',{ 
+							dataType:'json',
+							data:{
+								lotteryType:'11选5',
+								period:'10'
+							},
+							type:'get',
+							success:function(data){
+								if(data.status=='ok'){
+									//往期奖号list		
+									var listAgo='';	
+									for (var i = data.rows.length-1; i>=0; i--) { 
+										var qi=data.rows[i].periods.substring(data.rows[i].periods.length-2,data.rows[i].periods.length)
+										listAgo+='<li class="mui-table-view-cell history-number"><span class="history-qi">0'+qi+'期</span><span class="history-lottery">'+data.rows[i].awardNumber+'</span></li>'
+									}
+									document.getElementById('list-ago').innerHTML=listAgo;
+									//最近一期
+									var now=''
+									    now+='20'+data.rows[data.rows.length-1].periods.substring(0,6)+'-0'+data.rows[data.rows.length-1].periods.substring(data.rows[data.rows.length-1].periods.length-2,data.rows[data.rows.length-1].periods.length)
+									document.getElementById('last-phase').innerHTML=now;
+									document.getElementById('last-number').innerHTML=data.rows[data.rows.length-1].awardNumber
+									var arr=data.rows[data.rows.length-1].awardNumber.split(',')
+									var ballList=document.querySelectorAll('.ball')
+									for(var i=0;i<ballList.length;i++){
+										ballList[i].setAttribute('class','ball run-ball1')  
+										ballList[i].innerHTML=arr[i]		
+									}   
+								}else{    
+									  
+								}
+							}, 
+							error:function(xhr,type,errorThrown){
+								console.log('错了')
+//								plus.navigator.closeSplashscreen();
+//								var errorText='<div class="empty-show"><h4>网络不给力，请检查网络！</h4><button id="reloadWv" class="mui-btn mui-btn-negative">重新加载</button></div>'
+//								document.getElementById('pullrefresh').innerHTML=errorText;
+//								document.getElementById('pullrefresh').className='mui-content mui-scroll-wrapper';
+							}
+						});
+						//跑马灯接口
+						$.ajax(url+'app/lottery/selectNotice',{
+							dataType:'json',
+							type:'get',
+							success:function(data){ 
+								if(data.status=='ok'){
+									document.getElementById('notice').innerHTML=data.rows[0].paramValue		
+								}else{
+									 
+								}
+							},  
+							error:function(xhr,type,errorThrown){
+								console.log('错了') 
+//								plus.navigator.closeSplashscreen();
+//								var errorText='<div class="empty-show"><h4>网络不给力，请检查网络！</h4><button id="reloadWv" class="mui-btn mui-btn-negative">重新加载</button></div>'
+//								document.getElementById('pullrefresh').innerHTML=errorText;
+//								document.getElementById('pullrefresh').className='mui-content mui-scroll-wrapper';
+							}
+						});
+						//下期期号及开奖倒计时
+						$.ajax(url+'app/lottery/selectPeriod',{
+							dataType:'json',
+							type:'get', 
+							success:function(data){      
+								if(data.status=='ok'){ 
+									var nowPhase='20'+data.mapInfo.period.substring(0,6)+'-0'+data.mapInfo.period.substring(6,8)
+									//存期数
+									qisu2=data.mapInfo.period;
+									document.getElementById('now-phase').innerHTML=nowPhase
+									var min=document.getElementById('min');
+									var second=document.getElementById('second');
+									qisu=data.mapInfo.period;
+									console.log(parseInt(parseInt(data.mapInfo.seconds)/60));
+										console.log(parseInt(parseInt(data.mapInfo.seconds)%60))
+									if(parseInt(parseInt(data.mapInfo.seconds)%60)<10){
+										console.log('进来了')
+										second.innerHTML='0'+parseInt(parseInt(data.mapInfo.seconds)%60)
+									}else{       
+										second.innerHTML=parseInt(parseInt(data.mapInfo.seconds)%60)
+									} 		
+									if(parseInt(parseInt(data.mapInfo.seconds)/60)<10){
+										min.innerHTML="0"+parseInt(parseInt(data.mapInfo.seconds)/60)
+									}else{
+										min.innerHTML=parseInt(parseInt(data.mapInfo.seconds)/60)
+									}  
+									function domiao(){
+										if(min.innerHTML=='00'&&second.innerHTML=='00'){
+											//开奖
+											console.log('开奖')
+//											w=plus.nativeUI.showWaiting('',{padlock:true});
+											document.getElementById('ball1').setAttribute('class','ball run-ball')
+											document.getElementById('ball2').setAttribute('class','ball run-ball')
+											document.getElementById('ball3').setAttribute('class','ball run-ball')
+											document.getElementById('ball4').setAttribute('class','ball run-ball')
+											document.getElementById('ball5').setAttribute('class','ball run-ball')
+											function openReward(){
+												$.ajax(url+'app/lottery/openReward',{
+													dataType:'json',
+													data:{
+														period:qisu 
+													},
+													type:'get',
+													success:function(data){
+														console.log(qisu)
+														if(data.status=='ok'){
+//															console.log(data.rows[0].awardNumber+'中奖号码')
+//															var arrlist=data.rows[0].awardNumber
+//															var arr=arrlist.split(",")
+//															console.log(arr)
+//															runList=document.querySelectorAll('.run-ball')
+//															for(var i=0;i<runList.length;i++){
+//																console.log(arr[i])
+//																runList[i].innerHTML=arr[i];
+//																runList[i].setAttribute('class','ball run-ball1')
+//															} 
+															loadPage() 
+//															w.close()
+														}else{ 
+															console.log('没有拿到')	
+															setTimeout(openReward,1000) 
+														}
+													},
+													error:function(xhr,type,errorThrown){
+														console.log('错了')
+//														plus.navigator.closeSplashscreen();
+//														var errorText='<div class="empty-show"><h4>网络不给力，请检查网络！</h4><button id="reloadWv" class="mui-btn mui-btn-negative">重新加载</button></div>'
+//														document.getElementById('pullrefresh').innerHTML=errorText;
+//														document.getElementById('pullrefresh').className='mui-content mui-scroll-wrapper';
+													}
+												});
+											}
+											openReward(); 
+											
+										}else{
+											if(second.innerHTML=='00'){
+												second.innerHTML=59
+												if(min.innerHTML=='10'){
+													min.innerHTML='09'
+												}else{ 
+													if(min.innerHTML.substring(0,1)=='0'){
+													console.log(min.innerText.substring(1,2)-1)
+													var minNum=parseInt(min.innerText.substring(1,2))-1
+														min.innerHTML='0'+minNum
+													}else{
+														min.innerHTML=parseInt(min.innerHTML)-1
+													}
+												}
+													  
+											}else{												
+												if(second.innerHTML=='10'){  
+													second.innerHTML='09'
+												}else{
+													if(second.innerHTML.substring(0,1)=='0'){
+														var secondNum=parseInt(second.innerText.substring(1,2))-1
+														second.innerHTML='0'+secondNum
+													}else{
+//														console.log(second.innerHTML)
+														second.innerHTML=parseInt(second.innerHTML)-1
+													} 
+												}																									
+											}
+											setTimeout(domiao,1000)
+										}
+									}
+									var min2=document.getElementById('min2');
+									var second2=document.getElementById('second2')
+									var overQi=document.getElementById('over-qi')
+									if(min.innerHTML.substring(1,2)<4){ 
+										min2.innerHTML="0"+parseInt(parseInt(min.innerHTML.substring(1,2))+6)
+										overQi.innerHTML=parseInt(data.mapInfo.period.substring(6,8))+1
+									}else{
+										if(min.innerHTML.substring(0,1)!=0){
+											min2.innerHTML=parseInt(min.innerHTML)-4
+										}else{
+											min2.innerHTML='0'+parseInt(min.innerHTML.substring(1,2)-4)
+										}
+										overQi.innerHTML=data.mapInfo.period.substring(6,8)
+									} 
+									second2.innerHTML=second.innerHTML 
+									function domiao2(){
+										if(min2.innerHTML=='00'&&second2.innerHTML=='00'){
+											min2.innerHTML='09'
+											second2.innerHTML='59'
+											overQi.innerHTML=parseInt(overQi.innerHTML)+1
+										}else{
+											if(second2.innerHTML=='00'){
+												second2.innerHTML=59
+												if(min.innerHTML=='10'){
+													min.innerHTML='09'
+												}else{
+													if(min2.innerHTML.substring(0,1)=='0'){
+														console.log(min2.innerText.substring(1,2)-1)
+														var minNum=parseInt(min2.innerText.substring(1,2))-1
+															min2.innerHTML='0'+minNum          
+													}else{
+														min2.innerHTML=parseInt(min2.innerHTML)-1
+													}	
+												} 
+											}else{	 
+												if(second2.innerHTML=='10'){      
+													second2.innerHTML='09'
+												}else{
+													if(second2.innerHTML.substring(0,1)=='0'){
+														var secondNum=parseInt(second2.innerText.substring(1,2))-1
+														second2.innerHTML='0'+secondNum
+													}else{
+//														console.log(second.innerHTML)
+														second2.innerHTML=parseInt(second2.innerHTML)-1
+													}     
+												}		 																							
+											} 
+											
+										}
+										setTimeout(domiao2,1000)
+									}	 
+									//倒计时方法
+									domiao();
+									domiao2();
+									
+								}else{
+									 
+								}
+							},
+							error:function(xhr,type,errorThrown){
+								console.log('错了')	
+							}
+						});
+						
+					}			
+					loadPage();
+				}); 	
+			}(mui, document)); 
+			
+			
+		</script>
+	</body>
+
+</html>

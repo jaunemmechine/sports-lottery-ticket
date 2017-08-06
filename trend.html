@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no,email=no" />
+		<title>任选走势图</title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/account.css" rel="stylesheet"/>
+		<link href="css/icons-extra.css" rel="stylesheet"/>
+		<link href='css/all.css' rel="stylesheet"/>
+		<style>
+			.mui-bar{padding-left:0;padding-right:0}
+			.mui-bar2{padding-left:10px;padding-right:10px}
+			.mui-bar-nav ~ .mui-content{padding-top:104px;padding-bottom:245px;background:#fff}
+			#table-set>img{vertical-align:middle}
+			.mui-scroll{min-height:initial} 
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<div class='mui-bar2'> 
+			<a class="mui-icon goCenter" id='go-center'><img src="images/userCenter.png"></a> 
+			<h1 class="mui-title">走势图</h1>
+			<a  class="mui-pull-right mui-icon "><img  class="zoushi" id='go-back' src="images/gomoney.png"></a> 
+			</div>
+			<div class='table-name'>
+				<a class='table-set' id='table-set'  href="#topPopover"><img height='20px'src='images/seticon.png'></a>
+				<div class='table-title'>开奖号码</div>
+			</div>
+			<div class='table-head'>
+				<table class=''>
+					<colgroup>
+							<col width="60px">											
+							<col width="8%">
+							<col width="8%">
+							<col width="8%"> 
+							<col width="8%">
+							<col width="8%">
+							<col width="8%">
+							<col width="8%">
+							<col width="8%">
+							<col width="8%">
+							<col width="8%">
+							<col width="8%">
+							
+						</colgroup>
+					<tr>
+						<td style='width:59px' id='table-head-qi'>期数</td>
+						<td>01</td>
+						<td>02</td>
+						<td>03</td>
+						<td>04</td>
+						<td>05</td>
+						<td>06</td>
+						<td>07</td>
+						<td>08</td>
+						<td>09</td>
+						<td>10</td>
+						<td>11</td>
+					</tr>
+					
+				</table>
+			</div>
+		</header>
+		<div class='table-top'>
+			
+		</div>
+		<div class="mui-content  mui-scroll-wrapper" id='mui-content'>	
+				<div class="mui-scroll"> 	
+					<table class='table-content'>
+						<colgroup>
+							<col width="60px">											
+							<col width="8%">
+							<col width="8%">
+							<col width="8%"> 
+							<col width="8%">
+							<col width="8%">
+							<col width="8%">
+							<col width="8%">
+							<col width="8%">
+							<col width="8%">
+							<col width="8%">
+							<col width="8%">
+							
+						</colgroup> 
+						<tbody id='table-list'>
+							
+								
+						</tbody>
+					</table>
+				</div>
+			
+		</div>
+		<!--占时填充底部-->
+		<!--底部投注-->
+		<nav class="mui-bar mui-bar-tab trend-foot" id='trend-foot'>
+			
+            <div class='all-chose'>
+                <span class='all-msg'>选号</span>
+                <div class='all-list'> 
+                    <span class='all-ball all-ball-chose' id=''>01</span>
+                    <span class='all-ball' id=''>02</span>
+                    <span class='all-ball' id=''>03</span>
+                    <span class='all-ball' id=''>04</span>
+                    <span class='all-ball' id=''>05</span> 
+                    <span class='all-ball' id=''>06</span> 
+                    <span class='all-ball' id=''>07</span> 
+                    <span class='all-ball' id=''>08</span> 
+                    <span class='all-ball' id=''>09</span> 
+                    <span class='all-ball' id=''>10</span> 
+                    <span class='all-ball' id=''>11</span> 
+                </div>
+            </div>
+		   	<div class='foot-number'>
+			  	<div class='in-msg'>投注金币:<input id='all-in' type='number' value="0"> 金币</div>
+			  	<div class='btn-in' id='btn-in'>投注</div>
+		  	</div>
+		</nav>
+		<!--设置弹出菜单-->
+		<div id="topPopover" class="mui-popover">
+			<div class="mui-popover-arrow"></div>
+				<ul class="mui-table-view history-ul">
+					<li class="mui-table-view-cell" data-href='30'>
+						<a href="#">获取最近30期开奖数据</a>
+					</li>
+					<li class="mui-table-view-cell" data-href='50'><a href="#">获取最近50期开奖数据</a>
+					</li>
+					<li class="mui-table-view-cell" data-href='100'><a href="#">获取最近100期开奖数据</a>
+					</li>
+				</ul>
+				
+			
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script> 
+		<script>
+		var qisu;
+		(function($, doc) {
+				$.init({
+					swipeBack:true
+				});
+				 
+				$.plusReady(function() {
+					$('.mui-scroll-wrapper').scroll({
+						deceleration: 0.0005, //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+						indicators: false
+					});
+					
+				}); 
+				//进来渲染数据
+				$.ajax(url+'app/lottery/lotteryAward',{
+					dataType:'json',
+					data:{
+						lotteryType:'11选5',
+						period:30
+					},
+					type:'get',
+					success:function(data){
+						if(data.status=='ok'){
+							var tableList=''
+							var array=[1,1,1,1,1,1,1,1,1,1,1,1]
+							for(var i=0;i<data.rows.length;i++){
+								var number=data.rows[i].periods.substring(6,8)
+								tableList +='<tr><td>'+number+'期</td>'
+								for(var t=1;t<=11;t++){
+									var temp=t<10?"0"+t:t;
+									if(data.rows[i].awardNumber.indexOf(temp)>=0){
+										tableList +='<td><span class="red-ball">'+temp+'</span></td>'										
+									 	array[t]=1;
+									}else{
+										tableList +='<td>'+array[t]+'</td>'
+										array[t]+=1
+									}	
+								}
+								
+							}
+							document.getElementById('table-list').innerHTML=tableList
+						}else{
+							 
+						}
+					}, 
+					error:function(xhr,type,errorThrown){
+						console.log('错了')
+					}
+				});
+				/*任选*/
+				$(".all-list").on('tap','.all-ball',function(){
+					if(this.getAttribute('class').indexOf('all-ball-chose') > -1){
+						this.setAttribute('class','all-ball');
+					}else{
+						var chose=document.querySelectorAll('.all-ball-chose')
+						if(chose.length<5){
+							this.setAttribute('class','all-ball all-ball-chose');
+						}else{
+							mui.toast('最多不能超过5个')	 
+						}												
+					}
+				})
+				/*设置*/ 
+				$(".history-ul").on('tap','.mui-table-view-cell',function(){
+					var href=this.getAttribute('data-href').toLowerCase();
+					console.log(href);
+					/*隐藏设置*/
+					mui('#topPopover').popover('toggle')
+					//获取走势图数据
+					$.ajax(url+'app/lottery/lotteryAward',{
+						dataType:'json', 
+						data:{
+							lotteryType:'11选5',
+							period:href
+						},
+						type:'get',
+						success:function(data){
+							if(data.status=='ok'){
+								var tableList=''
+								var array=[1,1,1,1,1,1,1,1,1,1,1,1]
+								for(var i=0;i<data.rows.length;i++){
+									var number=data.rows[i].periods.substring(6,8)
+									tableList +='<tr><td>'+number+'期</td>'
+									for(var t=1;t<=11;t++){
+										var temp=t<10?"0"+t:t;
+										if(data.rows[i].awardNumber.indexOf(temp)>=0){
+											tableList +='<td><span class="red-ball">'+temp+'</span></td>'
+										 	array[t]=1;
+										}else{
+											tableList +='<td>'+array[t]+'</td>'
+											array[t]+=1
+										}	
+									}
+									
+								}
+								document.getElementById('table-list').innerHTML=tableList
+							}else{
+								 
+							}
+						}, 
+						error:function(xhr,type,errorThrown){
+							console.log('错了')
+						}
+					});
+				})
+				/*去投注*/								
+				//投注金额正则判断
+				allIn=document.getElementById('all-in')
+				allIn.addEventListener('input',function(){
+					var reg = /^[1-9]{1}([0-9]+)?$/;
+					var r=allIn.value.match(reg)
+					if(r==null){
+						allIn.value=''
+					}else{
+						
+					}
+				})
+				//获得期数
+				$.ajax(url+'app/lottery/selectPeriod',{
+					dataType:'json',
+					type:'post', 
+					success:function(data){
+						if(data.status=='ok'){
+							console.log(parseInt(parseInt(data.mapInfo.seconds)/60))
+							if(parseInt(parseInt(data.mapInfo.seconds)/60<4)){
+								qisu=data.mapInfo.period+1
+							}else{
+								qisu=data.mapInfo.period
+							}
+							console.log(qisu)
+						}else{
+							qisu=data.mapInfo.period
+							console.log(data.status+data.info) 
+							plus.nativeUI.toast(data.info)
+						}
+					},
+					error:function(xhr,type,errorThrown){
+						console.log('错了')
+					}
+				});
+				document.getElementById('btn-in').addEventListener('tap',function(){
+					if(himall.isLogin()){
+						var userState = JSON.parse(localStorage.getItem('$state') || "{}");
+						var token=userState.token;
+						var dan1=document.querySelectorAll('.all-ball-chose')
+						var cathecticNumber='';
+						var allIn=document.getElementById('all-in'); 
+						var overQi=document.getElementById('over-qi')
+					
+						
+						//投注金额判断
+						if(allIn.value<=0){
+							plus.nativeUI.toast('投注金额不能为0')
+							return;
+						}
+						if(dan1.length>0){
+							console.log(dan1.length)
+							switch (String(dan1.length)) 
+							{
+								case '1':
+									cathecticType='one';
+								  	break;
+								case '2':
+								 	cathecticType='two';
+								  	break;
+								case '3':
+								 	cathecticType='three';
+								 	break;
+								case '4':
+								 	cathecticType='four';	
+								 	break;
+								case '5':
+								 	cathecticType='five';
+								 	break;
+								default:		
+								  	return;
+							}
+							for(var i=0 ; i<dan1.length ; i++){
+								cathecticNumber = dan1[i].innerHTML+','+cathecticNumber	
+							}
+							cathecticNumber=cathecticNumber.substring(0,cathecticNumber.length-1)	
+							console.log(cathecticNumber);
+							
+							$.ajax(url+'app/lottery/addLotteryCathectic',{
+								dataType:'json',
+								data:{
+									lotteryType:'11选5',
+									cathecticMoney:allIn.value,
+									periods:qisu, 
+									cathecticType:cathecticType,
+									cathecticNumber:cathecticNumber,
+									token:token, 
+								}, 
+								type:'post', 
+								success:function(data){
+									if(data.status=='ok'){
+										plus.nativeUI.toast('提交成功')	
+										himall.openVW('allinList.html');
+									}else{
+										console.log(data.status+data.info) 
+										plus.nativeUI.toast(data.info)
+									}
+								},
+								error:function(xhr,type,errorThrown){
+									console.log('错了')
+								}
+							});
+						}
+					}else{
+						plus.nativeUI.toast('请先登录')
+						showLogin('','');		 					    
+						return;
+					}
+				})
+				/*去主页*/
+				document.getElementById('go-back').addEventListener('tap',function(){
+					mui.back()
+				})
+				/*去个人中心*/	
+				document.getElementById('go-center').addEventListener('tap',function(){
+					himall.openVW('userCenter.html')
+				})
+				
+				
+ 		}(mui, document));	
+ 		/*动态设置table头部宽度*/ 
+		var style=document.getElementById('table-head-qi')
+//					console.log(window.getComputedStyle(style, null).width)
+		var width=window.getComputedStyle(style, null).width
+		document.getElementById('table-set').style.width=width
+		/*动态设置区域滚动*/	 
+		var style2=document.getElementById('trend-foot')
+		console.log(window.getComputedStyle(style2, null).height)
+		var height=window.getComputedStyle(style2, null).height
+		document.getElementById('mui-content').style.paddingBottom=height
+		console.log('为什么要进来两次')
+		</script>
+	</body>
+
+</html>

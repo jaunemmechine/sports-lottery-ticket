@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no,email=no" />
+		<title>投注单 </title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/account.css" rel="stylesheet"/>
+		<link href="css/icons-extra.css" rel="stylesheet"/>
+		<link href='css/all.css' rel="stylesheet"/>
+		<style>
+			.mui-control-content{height:500px}
+			.mui-segmented-control{background:#fff;color:#666;border:none}
+			.mui-segmented-control .mui-control-item.mui-active{border:none;border-bottom:2px solid #e3393c;background:none;color:#e3393c}
+			.mui-segmented-control .mui-control-item{color:#666;border:none}
+			.item-border{position:relative}
+			.item-border::after{content: "";position:absolute;width:1px;height:20px;background:#eee;top:10px;left:0}
+			.item-border::before{content: "";position:absolute;width:1px;height:20px;background:#eee;top:10px;right:0}
+			.mui-table-view{background:none}
+			#btn-in{letter-spacing: 5px;padding-left: 5px;font-size:16px}
+		</style> 
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">投注单</h1>
+		</header>
+		<div class="mui-content " id='mui-content'>					
+			
+			<ul class="mui-table-view my-lottery-list" id='list'>
+				<li class="mui-table-view-cell">
+					<div class='my-lottery-msg'>
+						<span class="my-lottery-number">06,07,09,01,05</span>
+						<span><span class='my-number-type'>任选五</span><span class='my-lottery-money'>10金币</span></span>
+					</div>
+					<div class='lottery-type ' >x</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class='my-lottery-msg'>
+						<span class="my-lottery-number">06,07,09,01,05</span>
+						<span><span class='my-number-type'>任选五</span><span class='my-lottery-money'>10金币</span></span>
+					</div>
+					<div class='lottery-type ' >x</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class='my-lottery-msg'>
+						<span class="my-lottery-number">06,07,09,01,05</span>
+						<span><span class='my-number-type'>任选五</span><span class='my-lottery-money'>10金币</span></span>
+					</div>
+					<div class='lottery-type ' >x</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class='my-lottery-msg'>
+						<span class="my-lottery-number">06,07,09,01,05</span>
+						<span><span class='my-number-type'>任选五</span><span class='my-lottery-money'>10金币</span></span>
+					</div>
+					<div class='lottery-type ' >x</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class='my-lottery-msg'>
+						<span class="my-lottery-number">06,07,09,01,05</span>
+						<span><span class='my-number-type'>任选五</span><span class='my-lottery-money'>10金币</span></span>
+					</div>
+					<div class='lottery-type ' >x</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class='my-lottery-msg'>
+						<span class="my-lottery-number">06,07,09,01,05</span>
+						<span><span class='my-number-type'>任选五</span><span class='my-lottery-money'>10金币</span></span>
+					</div>
+					<div class='lottery-type ' >x</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class='my-lottery-msg'>
+						<span class="my-lottery-number">06,07,09,01,05</span>
+						<span><span class='my-number-type'>任选五</span><span class='my-lottery-money'>10金币</span></span>
+					</div>
+					<div class='lottery-type ' >x</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class='my-lottery-msg'>
+						<span class="my-lottery-number">06,07,09,01,05</span>
+						<span><span class='my-number-type'>任选五</span><span class='my-lottery-money'>10金币</span></span>
+					</div>
+					<div class='lottery-type ' >X</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class='my-lottery-msg'>
+						<span class="my-lottery-number">06,07,09,01,05</span>
+						<span><span class='my-number-type'>任选五</span><span class='my-lottery-money'>10金币</span></span>
+					</div>
+					<div class='lottery-type ' >x</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class='my-lottery-msg'>
+						<span class="my-lottery-number">06,07,09,01,05</span>
+						<span><span class='my-number-type'>任选五</span><span class='my-lottery-money'>10金币</span></span>
+					</div>
+					<div class='lottery-type ' >x</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class='my-lottery-msg'>
+						<span class="my-lottery-number">06,07,09,01,05</span>
+						<span><span class='my-number-type'>任选五</span><span class='my-lottery-money'>10金币</span></span>
+					</div>
+					<div class='lottery-type ' >x</div>
+				</li>
+				
+			</ul>
+			<div style='height:40px'></div>							
+		</div>
+		<!--底部投注-->
+		<nav class="mui-bar mui-bar-tab">
+		   	<div class='foot-number'>
+			  	<div class='in-msg'>投注金币:<input id='all-in' type='number' readonly="readonly" value="0"> 金币</div>
+			  	<div class='btn-in' id='btn-in' >确认投注</div>
+		  	</div>
+		</nav>
+		
+		
+		
+		
+		
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script> 
+		<script>
+		 
+		(function($, doc) {
+				$.init({
+					swipeBack:true
+				});	
+				var userState = JSON.parse(localStorage.getItem('$state') || "{}");
+				var token=userState.token;
+				var id='';
+				$.plusReady(function() {
+					//读取未付款订单
+					$.ajax(url+'app/vip/selectByVip',{
+						dataType:'json',
+						data:{
+							winningStatus:'1',
+							token:token
+						},
+						type:'get',  
+						success:function(data){
+							console.log('aa')
+							if(data.status=='ok'){
+								console.log('aa')
+								var list='';
+								var cathecticType='';  
+								if(data.rows.length>0){
+									console.log(String(data.rows[0].cathecticType))
+									switch (String(data.rows[0].cathecticType)) 
+									{
+										case 'one':
+											cathecticType='一中一';
+										  	break;
+										case 'two':
+										 	cathecticType='二中二'; 
+										  	break;
+										case 'three':
+										 	cathecticType='三中三';
+										 	break;
+										case 'four':
+										 	cathecticType='四中四';	
+										 	break;
+										case 'five':
+										 	cathecticType='五中五';
+										 	break;
+									 	case 'large':
+									 		cathecticType='大';
+									 		break;
+									 	case 'small':
+									 		cathecticType='小';
+									 		break;
+									 	case 'single':
+									 		cathecticType='单';
+									 		break;
+									 	case 'double':
+									 		cathecticType='双';
+									 		break;
+										default:		
+										  	return;
+									}
+									list += '<li class="mui-table-view-cell"><div class="my-lottery-msg"><span class="my-lottery-number">'+data.rows[0].cathecticNumber+'</span><span><span class="my-number-type">'+cathecticType+'</span><span class="my-lottery-money">'+data.rows[0].cathecticMoney+'</span></span></div><div class="lottery-type">x</div></li>'
+									id=data.rows[0].id
+									console.log(id+'id')
+									document.getElementById('all-in').value=data.rows[0].cathecticMoney
+									document.getElementById('list').innerHTML=list
+								}	
+							}else{
+								 
+							}
+						},
+						error:function(xhr,type,errorThrown){
+							console.log('错了')
+						}
+					});
+					
+					//确认投注
+					document.getElementById('btn-in').addEventListener('tap',function(){
+						$.ajax(url+'app/lottery/updateLotteryCathectic',{
+							dataType:'json',
+							data:{
+								id:id,
+								cathecticMoney:document.getElementById('all-in').value,
+								token:token
+							},
+							type:'get',
+							success:function(data){
+								if(data.status=='ok'){
+									plus.nativeUI.toast('投注成功')	
+									himall.openVW('main.html')
+								}else{
+									plus.nativeUI.toast(data.info)
+									console.log(data.info)
+								}
+							}, 
+							error:function(xhr,type,errorThrown){
+								console.log('错了')
+							}
+						});
+					})
+				})
+				/*返回取消订单*/
+				
+				mui.oldBack = mui.back;
+				mui.back = function(event) {
+					var btnArray = ['取消', '确定'];
+					mui.confirm('此时返回将取消订单，确认？', '警告', btnArray, function(e) {
+						if (e.index == 1) {
+							console.log(id+'id222')
+							$.ajax(url+'app/lottery/removeLotteryCathectic',{
+								dataType:'json',
+								data:{
+									id:id,
+									token:token
+								},
+								type:'get',
+								success:function(data){
+									if(data.status=='ok'){
+										plus.nativeUI.toast('订单已取消')		
+									}else{
+										plus.nativeUI.toast(data.info)
+									}
+								}, 
+								error:function(xhr,type,errorThrown){
+									console.log('错了')
+								}
+							});
+							mui.oldBack();
+						} else {
+							
+						}
+					})
+					return false;
+				};
+				
+		
+			}(mui, document));	 
+		</script>
+	</body>
+
+</html>

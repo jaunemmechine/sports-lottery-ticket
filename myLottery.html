@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no,email=no" />
+		<title>我的彩票 </title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/account.css" rel="stylesheet"/>
+		<link href="css/icons-extra.css" rel="stylesheet"/>
+		<link href='css/all.css' rel="stylesheet"/>
+		<style>
+			.mui-control-content{height:500px}
+			.mui-segmented-control{background:#fff;color:#666;border:none}
+			.mui-segmented-control .mui-control-item.mui-active{border:none;border-bottom:2px solid #e3393c;background:none;color:#e3393c}
+			.mui-segmented-control .mui-control-item{color:#666;border:none}
+			.item-border{position:relative}
+			.item-border::after{content: "";position:absolute;width:1px;height:20px;background:#eee;top:10px;left:0}
+			.item-border::before{content: "";position:absolute;width:1px;height:20px;background:#eee;top:10px;right:0}
+			.mui-table-view{background:none}
+			
+		</style> 
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">我的彩票</h1>
+		</header>
+		<div class="mui-content " id='mui-content'>		
+			<div style="">
+				<div id="segmentedControl" class="mui-segmented-control">
+					<a class="mui-control-item mui-active" href="#item1">
+						全部
+					</a>
+					
+					<a class="mui-control-item item-border" href="#item2">
+						已中奖
+					</a>
+					<a class="mui-control-item" href="#item3">
+						待开奖
+					</a>
+				</div>
+			</div>
+			<div>
+				<div id="item1" class="mui-control-content mui-active">
+					<div id="scroll" class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<ul class="mui-table-view my-lottery-list" id='list1'>
+								<li class="mui-table-view-cell">
+									<div class='my-lottery-msg'>
+										<span class="my-lottery-number">06,07,09,01,05</span>
+										<span><span class='my-number-type'>任选五</span><span class='my-lottery-money'>10金币</span></span>
+									</div>
+									<div class='lottery-type type-1' >已中奖</div>
+								</li>
+								<li class="mui-table-view-cell">
+									<div class='my-lottery-msg'>
+										<span class="my-lottery-number">06,07,09,01,05</span>
+										<span><span class='my-number-type'>任选五</span><span class='my-lottery-money'>10金币</span></span>
+									</div>
+									<div class='lottery-type type-4' >未中奖</div>
+								</li>
+								<li class="mui-table-view-cell">
+									<div class='my-lottery-msg'>
+										<span class="my-lottery-number">06,07,09,01,05</span>
+										<span><span class='my-number-type'>任选五</span><span class='my-lottery-money'>10金币</span></span>
+									</div>
+									<div class='lottery-type type-2' >待开奖</div>
+								</li>
+								<li class="mui-table-view-cell">
+									<div class='my-lottery-msg'>
+										<span class="my-lottery-number">06,07,09,01,05</span>
+										<span><span class='my-number-type'>任选五</span><span class='my-lottery-money'>10金币</span></span>
+									</div>
+									<div class='lottery-type type-3' >已开奖</div>
+								</li>
+								<li class="mui-table-view-cell">
+									<div class='my-lottery-msg'>
+										<span class="my-lottery-number">06,07,09,01,05</span>
+										<span><span class='my-number-type'>任选五</span><span class='my-lottery-money'>10金币</span></span>
+									</div>
+									<div class='lottery-type type-3' >已开奖</div>
+								</li>
+								
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="item2" class="mui-control-content">
+					<div id="scroll2" class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<ul class="mui-table-view my-lottery-list" id='list2'>
+								<li class="mui-table-view-cell">
+									<div class='my-lottery-msg'>
+										<span class="my-lottery-number">06,07,09,01,05</span>
+										<span><span class='my-number-type'>任选五</span><span class='my-lottery-money'>10金币</span></span>
+									</div>
+									<div class='lottery-type type-1' >已中奖</div>
+								</li>
+								<li class="mui-table-view-cell">
+									<div class='my-lottery-msg'>
+										<span class="my-lottery-number">06,07,09,01,05</span>
+										<span><span class='my-number-type'>任选五</span><span class='my-lottery-money'>10金币</span></span>
+									</div>
+									<div class='lottery-type type-1' >已中奖</div>
+								</li>
+								<li class="mui-table-view-cell">
+									<div class='my-lottery-msg'>
+										<span class="my-lottery-number">06,07,09,01,05</span>
+										<span><span class='my-number-type'>任选五</span><span class='my-lottery-money'>10金币</span></span>
+									</div>
+									<div class='lottery-type type-1' >已中奖</div>
+								</li>
+								<li class="mui-table-view-cell">
+									<div class='my-lottery-msg'>
+										<span class="my-lottery-number">06,07,09,01,05</span>
+										<span><span class='my-number-type'>任选五</span><span class='my-lottery-money'>10金币</span></span>
+									</div>
+									<div class='lottery-type type-1' >已中奖</div>
+								</li>
+								<li class="mui-table-view-cell">
+									<div class='my-lottery-msg'>
+										<span class="my-lottery-number">06,07,09,01,05</span>
+										<span><span class='my-number-type'>任选五</span><span class='my-lottery-money'>10金币</span></span>
+									</div>
+									<div class='lottery-type type-1' >已中奖</div>
+								</li>
+								
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="item3" class="mui-control-content">
+					<div id="scroll3" class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<ul class="mui-table-view my-lottery-list" id='list3'>
+								<li class="mui-table-view-cell">
+									<div class='my-lottery-msg'>
+										<span class="my-lottery-number">06,07,09,01,05</span>
+										<span><span class='my-number-type'>任选五</span><span class='my-lottery-money'>10金币</span></span>
+									</div>
+									<div class='lottery-type type-2' >待开奖</div>
+								</li>
+								<li class="mui-table-view-cell">
+									<div class='my-lottery-msg'>
+										<span class="my-lottery-number">06,07,09,01,05</span>
+										<span><span class='my-number-type'>任选五</span><span class='my-lottery-money'>10金币</span></span>
+									</div>
+									<div class='lottery-type type-2' >待开奖</div>
+								</li>
+								<li class="mui-table-view-cell">
+									<div class='my-lottery-msg'>
+										<span class="my-lottery-number">06,07,09,01,05</span>
+										<span><span class='my-number-type'>任选五</span><span class='my-lottery-money'>10金币</span></span>
+									</div>
+									<div class='lottery-type type-2' >待开奖</div>
+								</li>
+								<li class="mui-table-view-cell">
+									<div class='my-lottery-msg'>
+										<span class="my-lottery-number">06,07,09,01,05</span>
+										<span><span class='my-number-type'>任选五</span><span class='my-lottery-money'>10金币</span></span>
+									</div>
+									<div class='lottery-type type-2' >待开奖</div>
+								</li>
+								<li class="mui-table-view-cell">
+									<div class='my-lottery-msg'>
+										<span class="my-lottery-number">06,07,09,01,05</span>
+										<span><span class='my-number-type'>任选五</span><span class='my-lottery-money'>10金币</span></span>
+									</div>
+									<div class='lottery-type type-2' >待开奖</div>
+								</li>
+								
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		
+		
+		
+		
+		
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script> 
+		<script>
+		 
+		(function($, doc) {
+				$.init({
+					swipeBack:true
+				});	
+				$.plusReady(function() {
+					/*动态设置滚动区域*/
+					var style=document.getElementById('mui-content')
+//					console.log(window.getComputedStyle(style, null).height)
+					var height=window.getComputedStyle(style, null).height
+//					console.log(height);
+					var h=height.indexOf('p')
+//					console.log(h)
+					height=height.substr(0,h); 
+//					console.log(height)
+					height=height-84
+//					console.log(height)   
+					height=height+'px'
+					document.getElementById('item1').style.height=height
+					document.getElementById('item2').style.height=height 
+					document.getElementById('item3').style.height=height
+					$('#scroll').scroll({
+					indicators: false //是否显示滚动条
+					});
+					$('#scroll2').scroll({
+					indicators: false //是否显示滚动条
+					});
+					$('#scroll3').scroll({
+					indicators: false //是否显示滚动条
+					});
+					//获取数据
+					var userState = JSON.parse(localStorage.getItem('$state') || "{}");
+					var token=userState.token;
+					$.ajax(url+'app/vip/selectByVip',{
+						dataType:'json',
+						data:{
+							token:token
+						},
+						type:'get',
+						success:function(data){	
+							if(data.status=='ok'){
+								console.log('aaa')
+								var allList=''
+								var allList2=''
+								var allList3=''
+								var cathecticType=''
+								var winningStatus=''
+								var status=''
+								for(var i=0;i<data.rows.length;i++){
+									switch (String(data.rows[i].cathecticType)) 
+									{
+										case 'one':
+											cathecticType='一中一';
+										  	break;
+										case 'two':
+										 	cathecticType='二中二'; 
+										  	break;
+										case 'three':
+										 	cathecticType='三中三';
+										 	break;
+										case 'four':
+										 	cathecticType='四中四';	
+										 	break;
+										case 'five':
+										 	cathecticType='五中五';
+										 	break;
+									 	case 'large': 
+									 		data.rows[i].cathecticNumber='大';
+									 		cathecticType='单双大小和';
+									 		break;
+									 	case 'small':
+									 		data.rows[i].cathecticNumber='小';
+									 		cathecticType='单双大小和';
+									 		break;
+									 	case 'single':
+									 		data.rows[i].cathecticNumber='单';
+									 		cathecticType='单双大小和';
+									 		break;
+									 	case 'double': 
+									 		data.rows[i].cathecticNumber='双';
+									 		cathecticType='单双大小和';
+									 		break; 
+									 	case 'draw': 
+									 		data.rows[i].cathecticNumber='和';
+									 		cathecticType='单双大小和';
+									 		break;
+										default:		
+										  	return;
+									}
+									switch (data.rows[i].winningStatus)
+									{
+										case '1':
+											winningStatus='未付款';
+											status='type-1'
+										  	break;
+										case '2':
+										 	winningStatus='未开奖'; 
+										 	status='type-2'
+										  	break;
+										case '3':
+										 	winningStatus='中奖';
+										 	status='type-1'
+										 	break;
+										case '4':
+										 	winningStatus='未中奖';
+										 	status='type-3'
+										 	break;
+										default:		
+										  	return;
+									}  
+									
+									allList += '<li class="mui-table-view-cell"><div class="my-lottery-msg">'
+											+'<span class="my-lottery-number">'+data.rows[i].cathecticNumber+'</span>'
+											+'<span><span class="my-number-type">'+cathecticType+'</span><span class="my-lottery-money">'+data.rows[i].cathecticMoney+'金币</span></span>'
+											+'</div><div class="lottery-type '+status+'" >'+winningStatus+'</div></li>'
+									if(data.rows[i].winningStatus==3){
+										allList2 += '<li class="mui-table-view-cell"><div class="my-lottery-msg">'
+											+'<span class="my-lottery-number">'+data.rows[i].cathecticNumber+'</span>'
+											+'<span><span class="my-number-type">'+cathecticType+'</span><span class="my-lottery-money">'+data.rows[i].cathecticMoney+'金币</span></span>'
+											+'</div><div class="lottery-type '+status+'" >'+winningStatus+'</div></li>'
+									}
+									if(data.rows[i].winningStatus==2){ 
+										allList3 += '<li class="mui-table-view-cell"><div class="my-lottery-msg">'
+											+'<span class="my-lottery-number">'+data.rows[i].cathecticNumber+'</span>'
+											+'<span><span class="my-number-type">'+cathecticType+'</span><span class="my-lottery-money">'+data.rows[i].cathecticMoney+'金币</span></span>'
+											+'</div><div class="lottery-type '+status+'" >'+winningStatus+'</div></li>'
+									}
+									
+								}   
+								document.getElementById('list1').innerHTML=allList 
+								document.getElementById('list2').innerHTML=allList2 
+								document.getElementById('list3').innerHTML=allList3 
+								console.log(allList)
+							}else{
+								plus.nativeUI.toast(data.info)
+							} 
+						},  
+						error:function(xhr,type,errorThrown){
+							console.log('错了')  
+						}
+					});
+				})
+				
+				/*返回*/
+				/*去走势图*/
+//				document.getElementById('go-back').addEventListener('tap',function(){
+//					mui.back()
+//				})
+			}(mui, document));	 
+		</script>
+	</body>
+
+</html>

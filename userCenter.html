@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no,email=no" />
+		<title>个人中心 </title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/account.css" rel="stylesheet"/>
+		<link href="css/icons-extra.css" rel="stylesheet"/>
+		<link href='css/all.css' rel="stylesheet"/>
+		<style>
+			.center-msg{background:url(images/userbg.png) no-repeat;background-size:100% 100%;}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">个人中心</h1>
+		</header>
+		<div class="mui-content">
+			<div class='center-msg'>
+				<img src="images/toux.png" />
+				<div class='center-msg2'> 
+					<div class='user-msg'>
+						<span id='userName'>罗总</span>
+						<span>余额:<span id='userMoney'>1000</span><span id='userType'>正常</span></span>
+					</div>
+					<div class='changePsw' id='changePsw'><span><img src="images/changepws.png">修改密码</span></div>
+				</div>
+			</div>
+			<ul class="mui-table-view center-list">
+			    <li class="mui-table-view-cell" id='go-myLottery'>
+			        <a class="mui-navigate-right"><img src="images/wdcp.png" /><span>我的彩票</span></a>
+			    </li>
+			    <li class="mui-table-view-cell" id='go-cash'>
+			        <a class="mui-navigate-right"><img src="images/tx.png" /><span>提现</span></a>
+			    </li>
+			    <li class="mui-table-view-cell" id='go-top'>
+			        <a class="mui-navigate-right"><img src="images/sfjz.png" /><span>上分记录</span></a>
+			    </li>
+			    <li class="mui-table-view-cell" id='go-down'>
+			        <a class="mui-navigate-right"><img src="images/xfjl.png" /><span>下分记录</span></a>
+			    </li>
+			</ul>
+		</div>
+		
+						
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script> 
+		<script>
+		
+		(function($, doc) {
+				$.init({ 
+					swipeBack:true, 
+					preloadPages:[
+					    {
+					      url:'topHistory.html',
+					      id:'topHistory'
+					    },
+					    {
+					      url:'downHistory.html',
+					      id:'downHistory'
+					    },{
+					      url:'cash.html',
+					      id:'cash'
+					    },{
+					      url:'myLottery.html',
+					      id:'myLottery'
+					    }
+					]
+				});
+				
+				$.plusReady(function() {
+					
+				})
+				/*返回*/
+				/*去上分记录*/
+				document.getElementById('go-top').addEventListener('tap',function(){
+					himall.openVW('topHistory.html')
+				})
+				/*去下分记录*/
+				document.getElementById('go-down').addEventListener('tap',function(){
+					himall.openVW('downHistory.html')
+				})
+				/*去提现*/
+				document.getElementById('go-cash').addEventListener('tap',function(){
+					himall.openVW('cash.html')
+				})
+				/*去我的彩票*/
+				document.getElementById('go-myLottery').addEventListener('tap',function(){
+					himall.openVW('myLottery.html')
+				})
+				/*去修改密码*/
+				document.getElementById('changePsw').addEventListener('tap',function(){
+					himall.openVW('changePsw.html')
+				})
+				
+				/*获取数据*/
+				var userState = JSON.parse(localStorage.getItem('$state') || "{}");
+				var token=userState.token;
+				$.ajax(url+'app/vip/getVipInfo',{
+					dataType:'json',
+					data:{
+						token:token
+					},
+					type:'get',
+					success:function(data){
+						if(data.status=='ok'){
+							document.getElementById('userName').innerHTML=data.mapInfo.vip.loginName
+							document.getElementById('userMoney').innerHTML=data.mapInfo.vip.balance	
+						}else{
+							 
+						}
+					},  
+					error:function(xhr,type,errorThrown){
+						console.log('错了') 
+					}
+				});
+			}(mui, document));	 
+			
+		</script>
+	</body>
+
+</html>

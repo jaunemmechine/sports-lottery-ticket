@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no,email=no" />
+		<title>登录</title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/account.css" rel="stylesheet"/>
+	</head>
+   
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">登录</h1>
+			
+		</header>
+		<div class="mui-content">
+			<form id='login-form' class="mui-input-group">
+				<div class="mui-input-row">
+					<label>账号</label> 
+					<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入账号">
+				</div>
+				<div class="mui-input-row mui-password">
+					<label>密码</label>
+					<input id='password' type="password" class="mui-input-password mui-input" placeholder="请输入密码">
+				</div>
+			</form>
+			
+			<div class="mui-content-padded">
+				<button id='login' class="mui-btn mui-btn-block mui-btn-danger">登录</button>
+				
+			</div>
+			<div class="mui-content-padded oauth-area">
+
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script> 
+		<script>
+			(function($, doc) {
+				$.init({
+					swipeBack:true
+				});
+				$.plusReady(function() {
+					var settings = himall.getSettings(),
+						state = himall.getState(),
+						ws=plus.webview.currentWebview();
+						param=ws.param;
+						 
+						
+					var toMain = function() {
+					
+						if(isEmptyObject(param)){ 
+							setTimeout(function(){
+								ws.close();								
+								mui.back(); 
+							},500)
+							console.log('回到原网页');
+						}else{
+							console.log('回到跳转页面')
+//							mui.back();
+							himall.openVW(param.id,param.url,param.extras);														
+							setTimeout(function(){
+								ws.close();
+							},1000)
+						}
+					};	
+					
+					var loginButton = doc.getElementById('login');
+					var accountBox = doc.getElementById('account');
+					var passwordBox = doc.getElementById('password');				
+					loginButton.addEventListener('tap', function() {
+						var loginInfo = {
+							account: accountBox.value,
+							password: passwordBox.value
+						};
+						himall.login(loginInfo, function(err) {
+							if (err) {
+								plus.nativeUI.toast(err);
+								return;
+							}
+							toMain();
+						});
+					});
+					 
+					
+//					window.addEventListener('resize', function() {
+//						oauthArea.style.display = document.body.clientHeight > 400 ? 'block' : 'none';
+//					}, false);
+				}); 	
+			}(mui, document));
+		</script>
+	</body>
+
+</html>

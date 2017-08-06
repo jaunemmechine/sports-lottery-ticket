@@ -1,0 +1,179 @@
+{
+  "login.html": {
+    "resources": [
+      "js/app.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/account.css",
+      "css/mui.min.css",
+      "css/style.css"
+    ],
+    "refer": []
+  },
+  "main.html": {
+    "resources": [
+      "fonts/mui-icons-extra.ttf",
+      "js/app.js",
+      "js/mui.min.js",
+      "images/numberBg.png",
+      "images/zoushi.png",
+      "fonts/mui.ttf",
+      "css/account.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "css/icons-extra.css",
+      "images/userCenter.png",
+      "css/all.css"
+    ],
+    "refer": [
+      "trend.html",
+      "userCenter.html",
+      "allinList.html",
+      "login.html",
+      "trend2.html"
+    ]
+  },
+  "trend.html": {
+    "resources": [
+      "fonts/mui-icons-extra.ttf",
+      "js/app.js",
+      "js/mui.min.js",
+      "images/numberBg.png",
+      "images/zoushi.png",
+      "fonts/mui.ttf",
+      "css/account.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "css/all.css",
+      "css/icons-extra.css",
+      "images/userCenter.png",
+      "images/gomoney.png",
+      "images/seticon.png"
+    ],
+    "refer": [
+      "userCenter.html",
+      "allinList.html"
+    ]
+  },
+  "userCenter.html": {
+    "resources": [
+      "images/toux.png",
+      "images/changepws.png",
+      "images/wdcp.png",
+      "images/sfjz.png",
+      "images/userbg.png",
+      "images/tx.png",
+      "images/xfjl.png",
+      "js/app.js",
+      "fonts/mui.ttf",
+      "css/style.css",
+      "css/icons-extra.css",
+      "js/mui.min.js",
+      "css/account.css",
+      "css/mui.min.css",
+      "css/all.css"
+    ],
+    "refer": [
+      "topHistory.html",
+      "downHistory.html",
+      "cash.html",
+      "myLottery.html",
+      "changePsw.html"
+    ]
+  },
+  "topHistory.html": {
+    "resources": [
+      "js/app.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/account.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "css/all.css",
+      "css/icons-extra.css"
+    ],
+    "refer": []
+  },
+  "downHistory.html": {
+    "resources": [
+      "js/app.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/account.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "css/all.css",
+      "css/icons-extra.css"
+    ],
+    "refer": []
+  },
+  "cash.html": {
+    "resources": [
+      "js/app.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/account.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "css/all.css",
+      "css/icons-extra.css"
+    ],
+    "refer": []
+  },
+  "myLottery.html": {
+    "resources": [
+      "js/app.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/account.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "css/all.css",
+      "css/icons-extra.css"
+    ],
+    "refer": []
+  },
+  "allinList.html": {
+    "resources": [
+      "js/app.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/account.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "css/all.css",
+      "css/icons-extra.css"
+    ],
+    "refer": [
+      "main.html"
+    ]
+  },
+  "trend2.html": {
+    "resources": [
+      "images/seticon.png",
+      "images/gomoney.png",
+      "js/app.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/account.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "css/all.css",
+      "css/icons-extra.css",
+      "images/userCenter.png"
+    ],
+    "refer": [
+      "allinList.html",
+      "userCenter.html"
+    ]
+  },
+  "changePsw.html": {
+    "resources": [
+      "js/app.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/style.css"
+    ]
+  }
+}

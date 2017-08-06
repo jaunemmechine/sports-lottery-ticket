@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no,email=no" />
+		<title>提现 </title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/account.css" rel="stylesheet"/>
+		<link href="css/icons-extra.css" rel="stylesheet"/>
+		<link href='css/all.css' rel="stylesheet"/>
+		<style>
+			.mui-content>.top-list:first-child{margin-top:0}
+			.mui-table-view-cell:after{left:0}
+		</style> 
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">提现</h1>
+		</header>
+		<div class="mui-content ">		
+			<div class='cash-money'>
+				<label>请输入提现的金币数量</label>
+				<input type="number" id='number-input' />
+				<span class='user-have'>您现在有:<span id='money-number'></span>金币</span>
+				<div class='chose-money'>
+					<span class='rmb chose-rmb'>100</span>
+					<span class='rmb'>200</span>
+					<span class='rmb'>500</span>
+					<span class='rmb'>1000</span>
+				</div>
+			</div>
+			<div class='money-btn'>
+				<button type="button" id='sure-btn' class="mui-btn mui-btn-danger mui-btn-block">确认提交</button>
+			</div>
+		</div> 
+		
+		
+		
+		
+		
+		
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script> 
+		<script>
+		
+		(function($, doc) {
+				$.init({
+					swipeBack:true
+				});
+				var input=document.getElementById('number-input')
+				$.plusReady(function() {
+					$(".chose-money").on('tap','.rmb',function(){								
+						if(this.getAttribute('class').indexOf('rmb-chose') > -1){
+							this.setAttribute('class','rmb');
+						}else{
+							var rmb=document.querySelector('.rmb-chose')						
+							if(rmb){
+								rmb.setAttribute('class','rmb');
+							}
+							this.setAttribute('class','rmb rmb-chose')
+							
+							input.value=this.innerText
+						}
+					})
+				})
+				/*获取数据*/
+				var userState = JSON.parse(localStorage.getItem('$state') || "{}");
+				var token=userState.token;
+				$.ajax(url+'app/vip/getVipInfo',{
+					dataType:'json',
+					data:{
+						token:token
+					},
+					type:'get',
+					success:function(data){
+						if(data.status=='ok'){
+							document.getElementById('money-number').innerHTML=data.mapInfo.vip.balance	
+						}else{
+							 plus.nativeUI.toast(data.info)
+						}
+					},  
+					error:function(xhr,type,errorThrown){
+						console.log('错了') 
+					}
+				});
+				//提现申请	
+				document.getElementById('sure-btn').addEventListener('tap',function(){
+					$.ajax(url+'app/vip/cashOut',{
+						dataType:'json',
+						data:{
+							token:token,
+							operateCoins:input.value
+						},
+						type:'get',
+						success:function(data){
+							if(data.status=='ok'){
+								plus.nativeUI.toast(data.info)	
+							}else{
+								 plus.nativeUI.toast(data.info)
+							}
+						},  
+						error:function(xhr,type,errorThrown){
+							console.log('错了') 
+						}
+					});
+				})
+				/*返回*/
+				/*去走势图*/
+//				document.getElementById('go-back').addEventListener('tap',function(){
+//					mui.back()
+//				})
+			}(mui, document));	 
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no,email=no" />
+		<title>上分记录 </title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/account.css" rel="stylesheet"/>
+		<link href="css/icons-extra.css" rel="stylesheet"/>
+		<link href='css/all.css' rel="stylesheet"/>
+		<style>
+			.mui-content>.top-list:first-child{margin-top:0}
+			.mui-table-view-cell:after{left:0}
+		</style> 
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">上分记录</h1>
+		</header>
+		<div class="mui-content ">		
+			<ul class="mui-table-view top-list" id='list'>
+			    <li class="mui-table-view-cell">
+			        <span>上分100金币</span><span>2017-3-14 09:16:16</span>
+			    </li>
+			    <li class="mui-table-view-cell">
+			       <span>上分100金币</span><span>2017-3-14 09:16:16</span>
+			    </li>
+			    <li class="mui-table-view-cell">
+			       <span>上分100金币</span><span>2017-3-14 09:16:16</span>
+			    </li>
+			    <li class="mui-table-view-cell">
+			        <span>上分100金币</span><span>2017-3-14 09:16:16</span>
+			    </li>
+			</ul>
+		</div>
+		
+		
+		
+		
+		
+		
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script> 
+		<script>
+		
+		(function($, doc) {
+				$.init({
+					swipeBack:true
+				});
+				
+				$.plusReady(function() {
+															
+					
+				})
+				//获取数据
+				var userState = JSON.parse(localStorage.getItem('$state') || "{}");
+				var token=userState.token;
+				console.log(token)
+				$.ajax(url+'app/vip/selectRecharge',{
+					dataType:'json',
+					data:{
+						token:token, 
+					}, 
+					type:'post', 
+					success:function(data){
+						if(data.status=='ok'){
+							var html=''
+							for(var i=0;i<data.rows.length;i++){			
+								var myDate=getLocalTime(data.rows[i].flowTime)
+								console.log(myDate)
+								html+='<li class="mui-table-view-cell"><span>上分'+data.rows[i].flowCoins+'金币</span><span>'+myDate+'</span></li>'							
+							}
+							document.getElementById('list').innerHTML=html
+						}else{
+							console.log(data.status+data.info) 
+							plus.nativeUI.toast(data.info)
+						}
+					},
+					error:function(xhr,type,errorThrown){
+						console.log('错了')
+					}
+				});
+				/*返回*/
+				/*去走势图*/
+				/*document.getElementById('go-back').addEventListener('tap',function(){
+					mui.back()
+				})*/
+				//时间格式化
+				function getLocalTime(nS) { 
+					return new Date(parseInt(nS)).toLocaleString().substr(0,17)
+				}
+			}(mui, document));	 
+		</script>
+	</body>
+
+</html>

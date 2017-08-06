@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>大小单双和</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no,email=no" />
+		<link rel="stylesheet" href="./css/mui.min.css">
+		
+		<link rel="stylesheet" href="./css/all.css" />
+		
+	</head>
+	<body> 
+		<!--单双大小和-->
+		<div id="item1" class="mui-control-content mui-active ">
+			<div class='chip-chose'>
+                <span class='make-msg'>选择</span>
+                <span class='make make-chose' id='dan'>单</span>
+                <span class='make' id='shuang'>双</span>
+                <span class='make' id='da'>大</span>
+                <span class='make' id='xiao'>小</span>
+                <span class='make' id='he'>和</span> 
+            </div>
+        </div>
+		
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/app.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			 //mui初始化
+			mui.init();
+			/*单双大小和投注*/
+			$(".chip-chose").on('tap','.make',function(){
+									
+				if(this.getAttribute('class').indexOf('make-chose') > -1){
+					this.setAttribute('class',' make');
+				}else{
+					var make=document.querySelector('.make-chose')
+					if(make){
+						make.setAttribute('class','make')
+					}						
+					this.setAttribute('class','make-chose make');
+				}					
+			})
+			  
+			
+		</script>
+		
+	<script type="text/javascript">
+		
+		
+	</script>
+	</body>
+	
+</html>
